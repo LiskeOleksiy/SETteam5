@@ -1,10 +1,10 @@
 ﻿{
   "version": "1.0.0",
   "restore": {
-    "projectUniqueName": "E:\\git\\Selenium\\SetLoopsSelenium\\SetLoopsSelenium\\Selenium1.csproj",
-    "projectName": "Selenium1",
-    "projectPath": "E:\\git\\Selenium\\SetLoopsSelenium\\SetLoopsSelenium\\Selenium1.csproj",
-    "outputPath": "E:\\git\\Selenium\\SetLoopsSelenium\\SetLoopsSelenium\\obj\\",
+    "projectUniqueName": "E:\\git\\Selenium\\Team5 2\\Team 5\\AutomationTest.csproj",
+    "projectName": "AutomationTest",
+    "projectPath": "E:\\git\\Selenium\\Team5 2\\Team 5\\AutomationTest.csproj",
+    "outputPath": "E:\\git\\Selenium\\Team5 2\\Team 5\\obj\\",
     "projectStyle": "PackageReference",
     "originalTargetFrameworks": [
       "netcoreapp3.1"

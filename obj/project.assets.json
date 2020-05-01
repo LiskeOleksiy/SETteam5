@@ -4099,11 +4099,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\git\\Selenium\\SetLoopsSelenium\\Selenium1.csproj",
-      "projectName": "Selenium1",
-      "projectPath": "E:\\git\\Selenium\\SetLoopsSelenium\\Selenium1.csproj",
+      "projectUniqueName": "E:\\git\\Selenium\\Team5 2\\Team 5\\AutomationTest.csproj",
+      "projectName": "AutomationTest",
+      "projectPath": "E:\\git\\Selenium\\Team5 2\\Team 5\\AutomationTest.csproj",
       "packagesPath": "C:\\Users\\Bill_Gates\\.nuget\\packages\\",
-      "outputPath": "E:\\git\\Selenium\\SetLoopsSelenium\\obj\\",
+      "outputPath": "E:\\git\\Selenium\\Team5 2\\Team 5\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Bill_Gates\\AppData\\Roaming\\NuGet\\NuGet.Config",

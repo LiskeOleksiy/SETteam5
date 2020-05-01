@@ -1,12 +1,9 @@
-﻿using System;
-using NUnit.Framework;
-
-namespace Selenium1.Framework
+﻿namespace AutomationTest.Framework
 {
     public static class Settings
     {
-        public static readonly string Url = "https://www.prestashop.com/en";
-        public static readonly TimeSpan ImplicitWait = TimeSpan.FromMilliseconds(Convert.ToInt32("3000"));
+        public const string Url = "http://52.177.12.77:8080/uk/";
+        public const string Email = "set@selenium.test";
+        public const string Password = "shmal";
     }
-
 }

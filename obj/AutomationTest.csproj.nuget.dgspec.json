@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "E:\\[Selenium]_Liske\\Selenium1.csproj": {}
+    "E:\\git\\Selenium\\Team5 2\\Team 5\\AutomationTest.csproj": {}
   },
   "projects": {
-    "E:\\[Selenium]_Liske\\Selenium1.csproj": {
+    "E:\\git\\Selenium\\Team5 2\\Team 5\\AutomationTest.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\[Selenium]_Liske\\Selenium1.csproj",
-        "projectName": "Selenium1",
-        "projectPath": "E:\\[Selenium]_Liske\\Selenium1.csproj",
+        "projectUniqueName": "E:\\git\\Selenium\\Team5 2\\Team 5\\AutomationTest.csproj",
+        "projectName": "AutomationTest",
+        "projectPath": "E:\\git\\Selenium\\Team5 2\\Team 5\\AutomationTest.csproj",
         "packagesPath": "C:\\Users\\Bill_Gates\\.nuget\\packages\\",
-        "outputPath": "E:\\[Selenium]_Liske\\obj\\",
+        "outputPath": "E:\\git\\Selenium\\Team5 2\\Team 5\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Bill_Gates\\AppData\\Roaming\\NuGet\\NuGet.Config",
