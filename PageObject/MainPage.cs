@@ -1,4 +1,5 @@
-﻿using OpenQA.Selenium;
+﻿using AutomationTest.Framework;
+using OpenQA.Selenium;
 
 namespace AutomationTest.PageObject
 {
@@ -12,5 +13,10 @@ namespace AutomationTest.PageObject
                     Driver.FindElement(SigninButton).Click();
                     return new User(Driver);
                 }
+        public User OpenStartPage()
+        {
+            Driver.Navigate().GoToUrl(Settings.Url);
+            return new User(Driver);
+        }
     }
 }

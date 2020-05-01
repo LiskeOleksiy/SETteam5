@@ -2,6 +2,7 @@
 using OpenQA.Selenium.Chrome;
 using System;
 using System.IO;
+using System.Threading;
 using AutomationTest.Framework;
 using AutomationTest.PageObject;
 using NUnit.Framework;
@@ -30,7 +31,23 @@ namespace AutomationTest.Test
         {
             DriverSettings();
             User user = _mainPage.OpenLoginPage();
-            user.LoginUser();
+            user.LoginUser().OpenMainPage().SearchWord("Hummingbird");
+        }
+        [Test] 
+        public void Test2()
+        {
+            DriverSettings();
+            User user = _mainPage.OpenLoginPage();
+            user.LoginUser().OpenMainPage().SearchWord("Hummingbird");
+            Thread.Sleep(4000);
+        }
+        [Test] 
+        public void Test3()
+        {
+            DriverSettings();
+            User user = _mainPage.OpenStartPage();
+            user.SubmitNewsletter();
+            Thread.Sleep(4000);
         }
     }
 }
