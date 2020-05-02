@@ -14,14 +14,6 @@ namespace AutomationTest.PageObject
         public User(IWebDriver driver) : base(driver)
         {
         }
-        private void InputData(By byType, string data)
-        {
-            Driver.FindElement(byType).SendKeys(data);
-        }
-        private void InputData(By byType)
-        {
-            Driver.FindElement(byType).Click();
-        }
         public User LoginUser()
         {
             InputData(ByEmail, Settings.Email);
@@ -29,11 +21,11 @@ namespace AutomationTest.PageObject
             InputData(LoginButton);
             return this;
         }
-        public User OpenMainPage()
+        /*public User OpenMainPage(user)
         {
             Driver.Navigate().GoToUrl(Settings.Url);
             return this;
-        }
+        }*/
         public User SearchWord(string word)
         {
             InputData(BySearch, word);

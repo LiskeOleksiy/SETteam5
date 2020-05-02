@@ -31,15 +31,28 @@ namespace AutomationTest.Test
         {
             DriverSettings();
             User user = _mainPage.OpenLoginPage();
-            user.LoginUser().OpenMainPage().SearchWord("Hummingbird");
+            Clothes clothes = new Clothes(_driver);
+            Cart cart = new Cart(_driver);
+            user
+                .LoginUser()
+                .OpenMainPage(user)
+                .SearchWord("Hummingbird");
+            clothes.ChooseClothes();
+            cart.AddToCart()
+                .Proceed();
+            
+            Thread.Sleep(8000);
         }
-        [Test] 
-        public void Test2()
+        [TestCase("$")] 
+        [TestCase("€")] 
+        [TestCase("₴")] 
+        public void CurrencyValidation(string currency)
         {
             DriverSettings();
-            User user = _mainPage.OpenLoginPage();
-            user.LoginUser().OpenMainPage().SearchWord("Hummingbird");
-            Thread.Sleep(4000);
+            Currency newCurrency = new Currency(_driver);
+            newCurrency.ChooseCurrencyDropdown()
+                .ChooseCurrency(currency);
+            Thread.Sleep(5000);
         }
         [TestCase("set@selenium.test","")]
         [TestCase("set@selenium","")]
@@ -48,7 +61,10 @@ namespace AutomationTest.Test
         {
             DriverSettings();
             Contact contact = _mainPage.OpenContactPage();
-            bool isMessageOk = contact.EnterData(email, message).SubmitNewsletter().IsDataOk();
+            bool isMessageOk = contact
+                .EnterData(email, message)
+                .SubmitNewMessage()
+                .IsDataOk();
             Assert.That(isMessageOk, Is.EqualTo(true));
         }
     }

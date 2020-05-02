@@ -19,14 +19,6 @@ namespace AutomationTest.PageObject
         public Contact(IWebDriver driver) : base(driver)
         {
         }
-        private void InputData(By byType, string data)
-        {
-            Driver.FindElement(byType).SendKeys(data);
-        }
-        private void InputData(By byType)
-        {
-            Driver.FindElement(byType).Click();
-        }
         public bool IsDataOk()
         {
             Driver.Manage().Timeouts().ImplicitWait = TimeSpan.Zero;
@@ -41,7 +33,7 @@ namespace AutomationTest.PageObject
             //InputData(SearchButton);
             return this;
         }
-        public Contact SubmitNewsletter()
+        public Contact SubmitNewMessage()
         {
             InputData(SubmitMessage);
             return this;

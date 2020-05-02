@@ -31,6 +31,8 @@
       </e>
       <e p="packages" t="ExcludeRecursive" />
       <e p="PageObject" t="Include">
+        <e p="Cart.cs" t="Include" />
+        <e p="Clothes.cs" t="Include" />
         <e p="Contact.cs" t="Include" />
         <e p="Currency.cs" t="Include" />
         <e p="MainPage.cs" t="Include" />
