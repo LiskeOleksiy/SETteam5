@@ -5,7 +5,7 @@ namespace AutomationTest.PageObject
 {
     public class Currency : PageObjectBase
     {
-        private static readonly By ChooseCurrencyButton =
+        private static readonly By CurrencyDropdownButton =
             By.XPath("//*[@id='_desktop_currency_selector']/div/button/span");
         private static readonly By ChooseUsdButton =
             By.XPath("//*[@id='_desktop_currency_selector']/div/ul/li[3]/a");
@@ -13,13 +13,12 @@ namespace AutomationTest.PageObject
             By.XPath("//*[@id='_desktop_currency_selector']/div/ul/li[1]/a");
         private static readonly By ChooseUahButton =
             By.XPath("//*[@id='_desktop_currency_selector']/div/ul/li[2]/a");
-        //*[@id="content"]/section/div/article[1]/div/div[1]/div/span[5]
         public Currency(IWebDriver driver) : base(driver)
         {
         }
-        public Currency ChooseCurrencyDropdown()
+        public Currency OpenCurrencyDropdown()
         {
-            InputData(ChooseCurrencyButton);
+            InputData(CurrencyDropdownButton);
             return this;
         }
         public Currency ChooseCurrency (string currency)
@@ -40,6 +39,12 @@ namespace AutomationTest.PageObject
                     break;
             }
             return this;
+        }
+
+        public bool IsCurrencyOk(string currency)
+        {
+            IWebElement priceText = Driver.FindElement(By.XPath("//*[@id='content']/section/div/article[1]/div/div[1]/div/span[5]"));
+            return priceText.Text.Contains(currency);
         }
 
     }

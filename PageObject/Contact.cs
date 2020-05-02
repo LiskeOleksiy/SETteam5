@@ -23,7 +23,7 @@ namespace AutomationTest.PageObject
         {
             Driver.Manage().Timeouts().ImplicitWait = TimeSpan.Zero;
             bool isOk = Wait.WaitFor(() => Driver.FindElements(IsDataValid).Any());
-            Driver.Manage().Timeouts().ImplicitWait = Settings.ImplicitWait;
+            //Driver.Manage().Timeouts().ImplicitWait = Settings.ImplicitWait;
             return isOk;
         }
         public Contact EnterData(string email, string message)

@@ -49,11 +49,13 @@ namespace AutomationTest.Test
         public void CurrencyValidation(string currency)
         {
             DriverSettings();
-            Currency newCurrency = new Currency(_driver);
-            newCurrency.ChooseCurrencyDropdown()
-                .ChooseCurrency(currency);
-            Thread.Sleep(5000);
+            Currency newCurrency = _mainPage.CreateCurrency();
+            bool validCurrency = newCurrency.OpenCurrencyDropdown()
+                .ChooseCurrency(currency)
+                .IsCurrencyOk(currency);
+            Assert.That(validCurrency);
         }
+        
         [TestCase("set@selenium.test","")]
         [TestCase("set@selenium","")]
         [TestCase("","message text")]
@@ -65,7 +67,7 @@ namespace AutomationTest.Test
                 .EnterData(email, message)
                 .SubmitNewMessage()
                 .IsDataOk();
-            Assert.That(isMessageOk, Is.EqualTo(true));
+            Assert.That(isMessageOk);
         }
     }
 }

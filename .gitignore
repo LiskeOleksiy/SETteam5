@@ -1,0 +1,9 @@
+﻿# Default ignored files
+.idea/
+.vs/
+bin/
+obj/
+AutomationTest.csproj
+AutomationTest.sln
+AutomationTest.csproj.user
+Selenium1.sln.DotSettings.user

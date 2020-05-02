@@ -27,5 +27,9 @@ namespace AutomationTest.PageObject
             Driver.FindElement(ContactButton).Click();
             return new Contact(Driver);
         }
+        public Currency CreateCurrency()
+        {
+           return new Currency(Driver);
+        }
     }
 }
