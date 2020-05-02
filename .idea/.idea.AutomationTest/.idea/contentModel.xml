@@ -20,6 +20,7 @@
       <e p="bin" t="ExcludeRecursive" />
       <e p="Framework" t="Include">
         <e p="Settings.cs" t="Include" />
+        <e p="Wait.cs" t="Include" />
       </e>
       <e p="obj" t="ExcludeRecursive">
         <e p="Debug" t="Include">
@@ -30,6 +31,8 @@
       </e>
       <e p="packages" t="ExcludeRecursive" />
       <e p="PageObject" t="Include">
+        <e p="Contact.cs" t="Include" />
+        <e p="Currency.cs" t="Include" />
         <e p="MainPage.cs" t="Include" />
         <e p="PageObjectBase.cs" t="Include" />
         <e p="User.cs" t="Include" />

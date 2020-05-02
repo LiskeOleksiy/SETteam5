@@ -41,13 +41,15 @@ namespace AutomationTest.Test
             user.LoginUser().OpenMainPage().SearchWord("Hummingbird");
             Thread.Sleep(4000);
         }
-        [Test] 
-        public void Test3()
+        [TestCase("set@selenium.test","")]
+        [TestCase("set@selenium","")]
+        [TestCase("","message text")]
+        public void SubmitContactValidation(string email, string message)
         {
             DriverSettings();
-            User user = _mainPage.OpenStartPage();
-            user.SubmitNewsletter();
-            Thread.Sleep(4000);
+            Contact contact = _mainPage.OpenContactPage();
+            bool isMessageOk = contact.EnterData(email, message).SubmitNewsletter().IsDataOk();
+            Assert.That(isMessageOk, Is.EqualTo(true));
         }
     }
 }
