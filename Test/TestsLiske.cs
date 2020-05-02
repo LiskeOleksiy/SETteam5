@@ -2,7 +2,6 @@
 using OpenQA.Selenium.Chrome;
 using System;
 using System.IO;
-using System.Threading;
 using AutomationTest.Framework;
 using AutomationTest.PageObject;
 using NUnit.Framework;
@@ -15,7 +14,6 @@ namespace AutomationTest.Test
         private static readonly TimeSpan ImplicitWait = TimeSpan.FromMilliseconds(Convert.ToInt32("3000"));
         private  IWebDriver _driver;
         private  MainPage _mainPage;
-        private double _sum;
         private void DriverSettings()
         {
             _driver = new ChromeDriver(Directory.GetCurrentDirectory());

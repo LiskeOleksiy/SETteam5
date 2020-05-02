@@ -7,15 +7,15 @@ namespace AutomationTest.PageObject
         protected readonly IWebDriver Driver;
         protected PageObjectBase(IWebDriver driver) => Driver = driver;
         
-        public void InputData(By byType, string data)
+        protected void InputData(By byType, string data)
         {
             Driver.FindElement(byType).SendKeys(data);
         }
-        public void InputData(By byType)
+        protected void InputData(By byType)
         {
             Driver.FindElement(byType).Click();
         }
-        public IWebElement FindData(By byType)
+        protected IWebElement FindData(By byType)
         {
             IWebElement parseText = Driver.FindElement(byType);
             return parseText;

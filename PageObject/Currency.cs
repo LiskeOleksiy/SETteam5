@@ -43,7 +43,8 @@ namespace AutomationTest.PageObject
 
         public bool IsCurrencyOk(string currency)
         {
-            IWebElement priceText = Driver.FindElement(By.XPath("//*[@id='content']/section/div/article[1]/div/div[1]/div/span[5]"));
+            IWebElement priceText =
+                Driver.FindElement(By.XPath("//*[@id='content']/section/div/article[1]/div/div[1]/div/span[5]"));
             return priceText.Text.Contains(currency);
         }
 

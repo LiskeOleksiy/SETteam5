@@ -2,7 +2,6 @@
 using System.Threading;
 
 namespace Selenium1.Framework
-
 {
     public static class Wait
     {
@@ -16,9 +15,7 @@ namespace Selenium1.Framework
                 Thread.Sleep(waitInterval);
             }
             while (DateTime.Now - start < TimeSpan.FromMilliseconds(millisecondsTimeout));
-
             return false;
         }
-        
     }
 }
