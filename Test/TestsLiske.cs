@@ -21,27 +21,29 @@ namespace AutomationTest.Test
             _driver = new ChromeDriver(Directory.GetCurrentDirectory());
             _driver.Manage().Window.Maximize();
             _driver.Manage().Timeouts().ImplicitWait = ImplicitWait;
-            _driver.Navigate().GoToUrl(Settings.Url);
+            _driver.Navigate().GoToUrl(Settings.HomeUrl);
             _mainPage = new MainPage(_driver);
         }
         [TearDown]
         public void OneTimeTearDown() => _driver.Quit();
-        [Test] 
-        public void Test1()
+
+        [TestCase("SortHighToLow")] 
+        [TestCase("SortLowToHigh")] 
+        [TestCase("SortAToZ")] 
+        [TestCase("SortZToA")] 
+        public void SortValidation(string sortType)
         {
             DriverSettings();
-            User user = _mainPage.OpenLoginPage();
-            Clothes clothes = new Clothes(_driver);
-            Cart cart = new Cart(_driver);
-            user
-                .LoginUser()
-                .OpenMainPage(user)
-                .SearchWord("Hummingbird");
-            clothes.ChooseClothes();
-            cart.AddToCart()
-                .Proceed();
-            
-            Thread.Sleep(8000);
+            Store newStore = _mainPage.CreateStore();
+            Currency newCurrency = _mainPage.CreateCurrency();
+            newStore.OpenStore();
+            newCurrency
+                .OpenCurrencyDropdown()
+                .ChooseCurrency("$");
+            bool validSort = newStore.ClickSort()
+                .Sort(sortType)
+                .IsSortValid();
+            Assert.That(validSort);
         }
         [TestCase("$")] 
         [TestCase("€")] 
@@ -50,24 +52,25 @@ namespace AutomationTest.Test
         {
             DriverSettings();
             Currency newCurrency = _mainPage.CreateCurrency();
-            bool validCurrency = newCurrency.OpenCurrencyDropdown()
+            bool validCurrency = newCurrency
+                .OpenCurrencyDropdown()
                 .ChooseCurrency(currency)
                 .IsCurrencyOk(currency);
             Assert.That(validCurrency);
         }
-        
         [TestCase("set@selenium.test","")]
         [TestCase("set@selenium","")]
         [TestCase("","message text")]
         public void SubmitContactValidation(string email, string message)
         {
             DriverSettings();
-            Contact contact = _mainPage.OpenContactPage();
-            bool isMessageOk = contact
+            Contact newContact = _mainPage.OpenContactPage();
+            bool isMessageOk = newContact
                 .EnterData(email, message)
                 .SubmitNewMessage()
                 .IsDataOk();
             Assert.That(isMessageOk);
         }
+
     }
 }
