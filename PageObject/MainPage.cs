@@ -17,11 +17,11 @@ namespace AutomationTest.PageObject
                     Driver.FindElement(SigninButton).Click();
                     return new User(Driver);
                 }
-        public User OpenStartPage()
+        /*public User OpenStartPage()
         {
             Driver.Navigate().GoToUrl(Settings.Url);
             return new User(Driver);
-        }
+        }*/
         public Contact OpenContactPage()
         {
             Driver.FindElement(ContactButton).Click();
@@ -30,6 +30,10 @@ namespace AutomationTest.PageObject
         public Currency CreateCurrency()
         {
            return new Currency(Driver);
+        }
+        public Store CreateStore()
+        {
+            return new Store(Driver);
         }
     }
 }

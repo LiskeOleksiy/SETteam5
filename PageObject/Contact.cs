@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using System.Threading;
 using AutomationTest.Framework;
 using OpenQA.Selenium;
 using Selenium1.Framework;
@@ -24,6 +25,7 @@ namespace AutomationTest.PageObject
             Driver.Manage().Timeouts().ImplicitWait = TimeSpan.Zero;
             bool isOk = Wait.WaitFor(() => Driver.FindElements(IsDataValid).Any());
             //Driver.Manage().Timeouts().ImplicitWait = Settings.ImplicitWait;
+            Thread.Sleep(2000);
             return isOk;
         }
         public Contact EnterData(string email, string message)
@@ -31,11 +33,13 @@ namespace AutomationTest.PageObject
             InputData(ByEmail, email);
             InputData(ByMessage, message);          
             //InputData(SearchButton);
+            Thread.Sleep(2000);
             return this;
         }
         public Contact SubmitNewMessage()
         {
             InputData(SubmitMessage);
+            Thread.Sleep(2000);
             return this;
         }
     }

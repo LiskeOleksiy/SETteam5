@@ -15,9 +15,14 @@ namespace AutomationTest.PageObject
         {
             Driver.FindElement(byType).Click();
         }
+        public IWebElement FindData(By byType)
+        {
+            IWebElement parseText = Driver.FindElement(byType);
+            return parseText;
+        }
         public User OpenMainPage(User obj)
         {
-            Driver.Navigate().GoToUrl(Settings.Url);
+            Driver.Navigate().GoToUrl(Settings.HomeUrl);
             return obj;
         }
     }
