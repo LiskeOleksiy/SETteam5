@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using AutomationTest.Framework;
 using OpenQA.Selenium;
 
 namespace AutomationTest.PageObject
@@ -7,44 +9,37 @@ namespace AutomationTest.PageObject
     {
         private static readonly By CurrencyDropdownButton =
             By.XPath("//*[@id='_desktop_currency_selector']/div/button/span");
-        private static readonly By ChooseUsdButton =
-            By.XPath("//*[@id='_desktop_currency_selector']/div/ul/li[3]/a");
-        private static readonly By ChooseEurButton =
-            By.XPath("//*[@id='_desktop_currency_selector']/div/ul/li[1]/a");
-        private static readonly By ChooseUahButton =
-            By.XPath("//*[@id='_desktop_currency_selector']/div/ul/li[2]/a");
+        static readonly Dictionary<char, By> CurrencyType = new Dictionary<char, By>()
+        {
+            {'$', By.XPath("//*[@id='_desktop_currency_selector']/div/ul/li[3]/a")},
+            {'€', By.XPath("//*[@id='_desktop_currency_selector']/div/ul/li[1]/a")},
+            {'₴', By.XPath("//*[@id='_desktop_currency_selector']/div/ul/li[2]/a")},
+        };
         public Currency(IWebDriver driver) : base(driver)
         {
         }
-        public Currency OpenCurrencyDropdown()
+        public void OpenCurrencyDropdown()
         {
             InputData(CurrencyDropdownButton);
-            return this;
-        }
-        public Currency ChooseCurrency (string currency)
-        {
-            switch (currency)
-            {
-                case "$":
-                    InputData(ChooseUsdButton);
-                    break;
-                case "€":
-                    InputData(ChooseEurButton);
-                    break;
-                case "₴":
-                    InputData(ChooseUahButton);
-                    break;
-                default:
-                    Console.WriteLine("Wrong currency");
-                    break;
-            }
-            return this;
         }
 
-        public bool IsCurrencyOk(string currency)
+        public Currency ChooseCurrency(char currency)
         {
+            OpenCurrencyDropdown();
+            InputData(CurrencyType[currency]);
+            return this;
+        }
+        public bool IsCurrencyOk(char currency)
+        {
+
             IWebElement priceText =
-                Driver.FindElement(By.XPath("//*[@id='content']/section/div/article[1]/div/div[1]/div/span[5]"));
+                Driver.FindElement(By.XPath("//*[@id='search_filters']"));
+//*[@id="facet_label_76345"]
+//*[@id="search_filters"]/section[3]
+//*[@id="search_filters"]/section[3]
+//*[@id="search_filters"]/section[6]
+//*[@id="search_filters"]
+            //By.XPath("//ul[@id='footer_sub_menu_84186']//a[@id='link-static-page-contact-2']");
             return priceText.Text.Contains(currency);
         }
 

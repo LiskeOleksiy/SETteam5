@@ -2,6 +2,7 @@
 using OpenQA.Selenium.Chrome;
 using System;
 using System.IO;
+using System.Threading;
 using AutomationTest.Framework;
 using AutomationTest.PageObject;
 using NUnit.Framework;
@@ -25,40 +26,69 @@ namespace AutomationTest.Test
         [TearDown]
         public void OneTimeTearDown() => _driver.Quit();
 
-        [TestCase("SortHighToLow")] 
-        [TestCase("SortLowToHigh")] 
-        [TestCase("SortAToZ")] 
-        [TestCase("SortZToA")] 
-        public void SortValidation(string sortType)
+        [TestCase("SortHighToLow", "Clothes")] 
+        [TestCase("SortLowToHigh", "Clothes")] 
+        [TestCase("SortAToZ", "Clothes")] 
+        [TestCase("SortZToA", "Clothes")] 
+        
+        [TestCase("SortHighToLow", "Accessories")] 
+        [TestCase("SortLowToHigh", "Accessories")] 
+        [TestCase("SortAToZ", "Accessories")] 
+        [TestCase("SortZToA", "Accessories")]
+        
+        [TestCase("SortHighToLow", "Art")] 
+        [TestCase("SortLowToHigh", "Art")] 
+        [TestCase("SortAToZ", "Art")] 
+        [TestCase("SortZToA", "Art")]
+        
+        [TestCase("SortHighToLow", "AllProducts")] 
+        [TestCase("SortLowToHigh", "AllProducts")] 
+        [TestCase("SortAToZ", "AllProducts")] 
+        [TestCase("SortZToA", "AllProducts")]
+        
+        public void SortValidation(string sortType, string storeDept)
         {
             DriverSettings();
             Store newStore = _mainPage.CreateStore();
             Currency newCurrency = _mainPage.CreateCurrency();
-            newStore.OpenStore();
+            newStore.OpenStore(storeDept);
             newCurrency
-                .OpenCurrencyDropdown()
-                .ChooseCurrency("$");
+                .ChooseCurrency('$');
             bool validSort = newStore.ClickSort()
                 .Sort(sortType)
                 .IsSortValid();
             Assert.That(validSort);
         }
-        [TestCase("$")] 
-        [TestCase("€")] 
-        [TestCase("₴")] 
-        public void CurrencyValidation(string currency)
+        [TestCase('$', "Clothes")] 
+        [TestCase('€', "Clothes")] 
+        [TestCase('₴', "Clothes")] 
+        
+        [TestCase('$', "Accessories")] 
+        [TestCase('€', "Accessories")] 
+        [TestCase('₴', "Accessories")] 
+        
+        [TestCase('$', "Art")] 
+        [TestCase('€', "Art")] 
+        [TestCase('₴', "Art")] 
+        
+        [TestCase('$', "AllProducts")] 
+        [TestCase('€', "AllProducts")] 
+        [TestCase('₴', "AllProducts")] 
+        public void CurrencyValidation(char currency, string storeDept)
         {
             DriverSettings();
+            Store newStore = _mainPage.CreateStore();
             Currency newCurrency = _mainPage.CreateCurrency();
-            bool validCurrency = newCurrency
-                .OpenCurrencyDropdown()
-                .ChooseCurrency(currency)
-                .IsCurrencyOk(currency);
+            newStore.OpenStore(storeDept);
+            newCurrency.ChooseCurrency(currency);
+            _driver.Manage().Timeouts().ImplicitWait = ImplicitWait;
+            bool validCurrency = newCurrency.IsCurrencyOk(currency);
             Assert.That(validCurrency);
         }
         [TestCase("set@selenium.test","")]
         [TestCase("set@selenium","")]
         [TestCase("","message text")]
+        [TestCase("","")]
         public void SubmitContactValidation(string email, string message)
         {
             DriverSettings();
