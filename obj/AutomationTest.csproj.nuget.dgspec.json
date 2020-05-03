@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\shpil\\source\\repos\\SETteam55\\AutomationTest.csproj": {}
+    "E:\\git\\Selenium\\Team5 2\\Team 5\\AutomationTest.csproj": {}
   },
   "projects": {
-    "C:\\Users\\shpil\\source\\repos\\SETteam55\\AutomationTest.csproj": {
+    "E:\\git\\Selenium\\Team5 2\\Team 5\\AutomationTest.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\shpil\\source\\repos\\SETteam55\\AutomationTest.csproj",
+        "projectUniqueName": "E:\\git\\Selenium\\Team5 2\\Team 5\\AutomationTest.csproj",
         "projectName": "AutomationTest",
-        "projectPath": "C:\\Users\\shpil\\source\\repos\\SETteam55\\AutomationTest.csproj",
-        "packagesPath": "C:\\Users\\shpil\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\shpil\\source\\repos\\SETteam55\\obj\\",
+        "projectPath": "E:\\git\\Selenium\\Team5 2\\Team 5\\AutomationTest.csproj",
+        "packagesPath": "C:\\Users\\Bill_Gates\\.nuget\\packages\\",
+        "outputPath": "E:\\git\\Selenium\\Team5 2\\Team 5\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\shpil\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Bill_Gates\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -98,7 +98,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.201\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.100-preview.1.20155.7\\RuntimeIdentifierGraph.json"
         }
       }
     }

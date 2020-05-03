@@ -21,6 +21,7 @@
     <ItemGroup>
       <Compile Remove="Test\EmailValidationTest.cs" />
       <Compile Remove="PageObject\Woman.cs" />
+      <Compile Remove="Test\TestsStrokov.cs" />
     </ItemGroup>
 
 </Project>
