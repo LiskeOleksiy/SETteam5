@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using AutomationTest.Framework;
+﻿using System.Collections.Generic;
 using OpenQA.Selenium;
 
 namespace AutomationTest.PageObject
@@ -22,7 +20,6 @@ namespace AutomationTest.PageObject
         {
             InputData(CurrencyDropdownButton);
         }
-
         public Currency ChooseCurrency(char currency)
         {
             OpenCurrencyDropdown();
@@ -34,14 +31,7 @@ namespace AutomationTest.PageObject
 
             IWebElement priceText =
                 Driver.FindElement(By.XPath("//*[@id='search_filters']"));
-//*[@id="facet_label_76345"]
-//*[@id="search_filters"]/section[3]
-//*[@id="search_filters"]/section[3]
-//*[@id="search_filters"]/section[6]
-//*[@id="search_filters"]
-            //By.XPath("//ul[@id='footer_sub_menu_84186']//a[@id='link-static-page-contact-2']");
             return priceText.Text.Contains(currency);
         }
-
     }
 }

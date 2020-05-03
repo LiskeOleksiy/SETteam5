@@ -10,7 +10,7 @@ using NUnit.Framework;
 namespace AutomationTest.Test
 {
     [TestFixture]
-    public class Test
+    public class TestLiske
     {
         private static readonly TimeSpan ImplicitWait = TimeSpan.FromMilliseconds(Convert.ToInt32("3000"));
         private  IWebDriver _driver;
